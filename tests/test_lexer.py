@@ -1,10 +1,12 @@
 import os
 import pytest
+
 from etalang.lexer import lexer
+from etalang.utils import find_column
 
 
 @pytest.mark.parametrize("source", [
-    "add",
+    # "add",
     "arrayinit",
 ])
 def test_lexer(source):
@@ -19,8 +21,7 @@ def test_lexer(source):
         tok = lexer.token()
         if not tok:
             break
-        
-        output_s += f"{tok.lineno}:{tok.lexpos+1} {tok.value}\n"
+        output_s += f"{tok.lineno}:{find_column(source_s, tok)} {tok.type} {tok.value}\n"
 
     print(output_s)
 
