@@ -26,6 +26,7 @@ tokens = [
     "MINUS",
     "TIMES",
     "DIVIDE",
+    "NOTEQUAL",
     "EQUAL",
     "LT",
     "GT",
@@ -48,6 +49,7 @@ t_PLUS = r'\+'
 t_MINUS = r'\-'
 t_TIMES = r'\*'
 t_DIVIDE = r'\/'
+t_NOTEQUAL = r'\!\='
 t_EQUAL = r'\='
 t_LT = r'\<'
 t_GT = r'\>'
