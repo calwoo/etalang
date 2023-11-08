@@ -28,11 +28,14 @@ tokens = [
     "DIVIDE",
     "NOTEQUAL",
     "EQUAL",
+    "ASSIGN",
+    "NOT",
     "LT",
     "GT",
     "COLON",
     "SEMICOLON",
     "COMMA",
+    "PLACEHOLDER",
     "LPAREN",
     "RPAREN",
     "LSQBRACKET",
@@ -43,19 +46,22 @@ tokens = [
 ] + list(reserved.values())
 
 # regular expression rules
-t_INTEGER = r'0|-?[1-9]([0-9])*'
+t_INTEGER = r'0|[1-9]([0-9])*'
 
 t_PLUS = r'\+'
 t_MINUS = r'\-'
 t_TIMES = r'\*'
 t_DIVIDE = r'\/'
 t_NOTEQUAL = r'\!\='
-t_EQUAL = r'\='
+t_EQUAL = r'\=\='
+t_ASSIGN = r'\='
+t_NOT = r'\!'
 t_LT = r'\<'
 t_GT = r'\>'
 t_COLON = r'\:'
 t_SEMICOLON = r'\;'
 t_COMMA = r'\,'
+t_PLACEHOLDER = r'\_'
 
 t_LPAREN  = r'\('
 t_RPAREN  = r'\)'
@@ -86,7 +92,7 @@ def t_CHARACTER(t):
     return t
 
 def t_ID(t):
-    r'[a-zA-Z_][a-zA-Z_0-9]*'
+    r'[a-zA-Z][a-zA-Z_0-9]*\'?'
     t.type = reserved.get(t.value, "ID")
     return t
 

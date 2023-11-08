@@ -9,9 +9,17 @@ from etalang.utils import find_column
     "add",
     "arrayinit",
     "arrayinit2",
+    "beauty",
     "ex1",
     "ex2",
-    # "gcd",
+    "gcd",
+    "insertionsort",
+    "mdarrays",
+    "ratadd",
+    "ratadduse",
+    "spec1",
+    "spec2",
+    "spec3",
 ])
 def test_lexer(source):
     source_f = os.path.join(os.path.dirname(__file__), f"source/{source}.eta")
