@@ -79,7 +79,11 @@ def t_STRING(t):
     r'\"(\\.|[^"\\])*\"'
     t.value = t.value.strip('\"')
     # # rip off all \x{y} -> \xy
-    ripped_val = re.sub(r'\\x\{([0-9a-fA-F]+)\}', lambda x: r'\x' + x.group(1), t.value).encode().decode("unicode_escape")
+    ripped_val = re.sub(
+        r'\\x\{([0-9a-fA-F]+)\}', 
+        lambda x: r'\x' + x.group(1), 
+        t.value
+    ).encode().decode("unicode_escape")
     t.value = repr(ripped_val).strip('\'')
     return t
 

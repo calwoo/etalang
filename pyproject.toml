@@ -5,9 +5,13 @@ description = ""
 authors = ["calvin d. woo <calvin.d.woo@gmail.com>"]
 readme = "README.md"
 
+[tool.poetry.scripts]
+etac = "etalang.main:app"
+
 [tool.poetry.dependencies]
 python = "^3.10"
 ply = "^3.11"
+typer = {extras = ["all"], version = "^0.9.0"}
 
 
 [tool.poetry.group.dev.dependencies]
